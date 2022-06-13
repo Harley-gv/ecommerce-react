@@ -1,0 +1,47 @@
+#img {
+    width: 100%;
+    object-fit: contain;
+    height: 200px;
+    
+}
+
+#center {
+    text-align: center;
+    
+}
+.search {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1rem
+}
+#search-container {
+   width: 80%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 350px);
+    gap: 20px;
+    justify-content: center;
+    margin-top: 1rem;
+}
+.pointer {
+    cursor: pointer;
+    text-align: center;
+   
+}
+.pointer:hover {
+    color: #ff6d2a;
+}
+.footer {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    padding: 1em;
+    text-align: center;
+    background-color: darkgray;
+}
