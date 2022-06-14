@@ -13,7 +13,7 @@ const ProductDetail = () => {
     //const productList = useSelector(state => state.productDetail)
 
     useEffect(() => {
-    axios.get(`https://ecommerce-api-react.herokuapp.com/api/v1/products/1`)
+    axios.get(`https://ecommerce-api-react.herokuapp.com/api/v1/products/${id}`)
      .then(res => setproductDetail(res.data.data?.product))
      },[dispatch, id])
 
