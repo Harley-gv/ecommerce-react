@@ -1,30 +1,43 @@
 import axios from 'axios';
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import './style.css'
 
 const ProductDetail = () => {
 
-    const [productDetail, setproductDetail ] = useState([])
+    const [productDetail, setproductDetail] = useState([])
 
-    const {id} = useParams()
+    const { id } = useParams()
     const dispatch = useDispatch()
 
     //const productList = useSelector(state => state.productDetail)
 
     useEffect(() => {
-    axios.get(`https://ecommerce-api-react.herokuapp.com/api/v1/products/${id}`)
-     .then(res => setproductDetail(res.data.data?.product))
-     },[dispatch, id])
+        axios.get(`https://ecommerce-api-react.herokuapp.com/api/v1/products/${id}`)
+            .then(res => setproductDetail(res.data?.data?.product))
+    }, [dispatch, id])
 
-     console.log(productDetail) 
+    console.log(productDetail)
     return (
         <div>
-            <h1>este es detalle de producto</h1>
+            <h6>. {productDetail.title}</h6>
             <br />
-            <h2>{productDetail.title}</h2>
-            {/* <img src={productDetail.productImgs[0]} alt=""/>  */}
-            <p>{productDetail.description}</p>
+            <div className="detail-container">
+                {/* <img src={productDetail.productImgs[1]} alt="img-product" id='img-detail'/> */}
+                <div className="detail-description">
+                    <h3>{productDetail.title}</h3>
+                    <br />
+                    <p>{productDetail.description}</p>
+                    <br />
+                    <p>Price: {productDetail.price}</p>
+                    <p>Quantity</p>
+                    <input type="text" placeholder='1' />
+                    <button className='btn btn-danger'>add to cart</button>
+                </div>
+            </div>
+
+
 
         </div>
     );

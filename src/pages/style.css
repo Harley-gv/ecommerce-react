@@ -45,3 +45,19 @@
     text-align: center;
     background-color: darkgray;
 }
+
+.detail-container {
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.detail-description {
+    margin: 1rem;
+    padding: 1rem;
+}
+
+#img-detail {
+    
+    padding: 1.5rem;
+}
