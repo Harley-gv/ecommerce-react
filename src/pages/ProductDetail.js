@@ -2,16 +2,18 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import productDetailModel from './model'
 import './style.css'
 
 const ProductDetail = () => {
 
-    const [productDetail, setproductDetail] = useState([])
+    const [productDetail, setproductDetail] = useState(productDetailModel)
 
     const { id } = useParams()
     const dispatch = useDispatch()
+    const img = productDetail.productImgs[0]
 
-    //const productList = useSelector(state => state.productDetail)
+    // const productList = useSelector(state => state.productDetail)
 
     useEffect(() => {
         axios.get(`https://ecommerce-api-react.herokuapp.com/api/v1/products/${id}`)
@@ -24,7 +26,7 @@ const ProductDetail = () => {
             <h6>. {productDetail.title}</h6>
             <br />
             <div className="detail-container">
-                {/* <img src={productDetail.productImgs[1]} alt="img-product" id='img-detail'/> */}
+                <img src={img} alt="img-product" id='img-detail'/>
                 <div className="detail-description">
                     <h3>{productDetail.title}</h3>
                     <br />
